@@ -2,7 +2,7 @@
   "name": "postgresql-tuning-dashboard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://${YOUR_GITHUB_USERNAME}.github.io/postgresql-tuning-dashboard",
+  "homepage": "https://axbuild.github.io/postgresql-tuning-dashboard",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
