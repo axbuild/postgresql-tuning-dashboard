@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/postgresql-tuning-dashboard/static/js/main.14cc3242.js",
+    "main.js": "/postgresql-tuning-dashboard/static/js/main.d46d0582.js",
     "index.html": "/postgresql-tuning-dashboard/index.html",
-    "main.14cc3242.js.map": "/postgresql-tuning-dashboard/static/js/main.14cc3242.js.map"
+    "main.d46d0582.js.map": "/postgresql-tuning-dashboard/static/js/main.d46d0582.js.map"
   },
   "entrypoints": [
-    "static/js/main.14cc3242.js"
+    "static/js/main.d46d0582.js"
   ]
 }
