@@ -1,46 +1,94 @@
-# Getting Started with Create React App
+# PostgreSQL Tuning Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-18.x-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue)](https://www.typescriptlang.org/)
+[![Material-UI](https://img.shields.io/badge/MUI-5.x-blue)](https://mui.com/)
 
-## Available Scripts
+Интерактивная панель управления для мониторинга и оптимизации производительности PostgreSQL. Визуализирует ключевые метрики производительности и предоставляет рекомендации по настройке в режиме реального времени.
 
-In the project directory, you can run:
+## 🚀 Возможности
 
-### `npm start`
+- **Мониторинг метрик в реальном времени:**
+  - Throughput (запросов/сек)
+  - Latency (задержка)
+  - Cache Hit Ratio
+  - WAL Generation Rate
+  - IOPS
+  - Checkpoint Statistics
+  - Replication Lag
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Интеллектуальные рекомендации:**
+  - Автоматический анализ конфигурации
+  - Предложения по оптимизации
+  - Приоритизация рекомендаций
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Интерактивная настройка параметров:**
+  - Системные ресурсы
+  - Профиль нагрузки
+  - WAL конфигурация
 
-### `npm test`
+## 🛠 Технологии
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- TypeScript
+- Material-UI
+- Recharts
+- PostgreSQL
 
-### `npm run build`
+## 📦 Установка
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Клонирование репозитория
+git clone https://github.com/axbuild/postgresql-tuning-dashboard.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Переход в директорию проекта
+cd postgresql-tuning-dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Установка зависимостей
+npm install
 
-### `npm run eject`
+# Запуск в режиме разработки
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🔧 Использование
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Укажите характеристики вашего сервера (RAM, CPU, диски)
+2. Настройте профиль нагрузки
+3. Получите рекомендации по оптимизации
+4. Мониторьте метрики производительности
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📊 Метрики и их значение
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Throughput
+- Измеряет количество запросов в секунду
+- Оптимальное значение: > 1000 запросов/сек
+- Влияет на общую производительность системы
 
-## Learn More
+### Cache Hit Ratio
+- Процент данных, найденных в кэше
+- Оптимальное значение: > 90%
+- Ключевой показатель эффективности кэширования
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### WAL Generation Rate
+- Скорость генерации журнала предзаписи
+- Оптимальное значение: < 100 МБ/сек
+- Влияет на производительность записи
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Вклад в проект
+
+Мы приветствуем вклад в развитие проекта! Пожалуйста, ознакомьтесь с нашим руководством по внесению изменений.
+
+## 📝 Лицензия
+
+MIT License - см. [LICENSE](LICENSE) файл для подробностей.
+
+## 👥 Авторы
+
+- [Ваше имя](https://github.com/axbuild)
+
+## 🙏 Благодарности
+
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [React Community](https://reactjs.org/)
+- [Material-UI Team](https://mui.com/)

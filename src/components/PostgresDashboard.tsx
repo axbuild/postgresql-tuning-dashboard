@@ -687,7 +687,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 1 }}>
           {children}
         </Box>
       )}
@@ -780,9 +780,9 @@ export const PostgresDashboard: React.FC = () => {
     description: string,
     children: React.ReactNode
   ) => (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={{ mb: 1 }}>
       <ParameterTooltip title={description}>
-        <Typography variant="subtitle2" sx={{ mb: 1 }}>{title}</Typography>
+        <Typography variant="subtitle2" sx={{ mb: 0.5 }}>{title}</Typography>
       </ParameterTooltip>
       {children}
     </Box>
@@ -812,15 +812,15 @@ export const PostgresDashboard: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: 2 }}>
-      <Typography variant="h5" gutterBottom>
+    <Box sx={{ p: 1 }}>
+      <Typography variant="h6" gutterBottom>
         PostgreSQL Tuning Dashboard
       </Typography>
 
-      <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+      <Box sx={{ display: 'grid', gap: 1, gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
         {/* System Resources */}
         <StyledPaper>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             Системные ресурсы
           </Typography>
           
@@ -872,7 +872,7 @@ export const PostgresDashboard: React.FC = () => {
 
         {/* Database Load */}
         <StyledPaper>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             Нагрузка
           </Typography>
           
@@ -919,7 +919,7 @@ export const PostgresDashboard: React.FC = () => {
 
         {/* WAL Configuration */}
         <StyledPaper>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             WAL Настройки
           </Typography>
           
@@ -974,10 +974,10 @@ export const PostgresDashboard: React.FC = () => {
 
         {/* Performance Metrics */}
         <StyledPaper sx={{ gridColumn: 'span 2' }}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom>
             Метрики производительности
           </Typography>
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={metricsHistory}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis />
@@ -997,28 +997,28 @@ export const PostgresDashboard: React.FC = () => {
           gridColumn: 'span 2',
           width: '100%',
           display: 'flex',
-          gap: 2
+          gap: 1
         }}>
           {/* Recommendations */}
           <StyledPaper sx={{ 
             flex: 1,
-            maxHeight: '600px', 
+            maxHeight: '500px', 
             overflow: 'auto'
           }}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="subtitle1" gutterBottom>
               Рекомендации
             </Typography>
             <Box sx={{ 
               display: 'grid', 
-              gap: 2, 
+              gap: 1, 
               gridTemplateColumns: '1fr',
               width: '100%'
             }}>
               {recommendations.map((rec, index) => (
                 <Card key={index} variant="outlined">
                   <CardContent>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                      <Typography variant="subtitle1">
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
+                      <Typography variant="body2">
                         {rec.parameter}
                       </Typography>
                       <Chip
@@ -1027,14 +1027,14 @@ export const PostgresDashboard: React.FC = () => {
                         color={rec.impact === 'high' ? 'error' : rec.impact === 'medium' ? 'warning' : 'info'}
                       />
                     </Box>
-                    <Typography variant="body2" color="textSecondary" gutterBottom>
+                    <Typography variant="caption" color="textSecondary" gutterBottom>
                       Текущее: {rec.currentValue}
                     </Typography>
-                    <Typography variant="body2" color="primary" gutterBottom>
+                    <Typography variant="caption" color="primary" gutterBottom>
                       Рекомендуется: {rec.recommendedValue}
                     </Typography>
-                    <Divider sx={{ my: 1 }} />
-                    <Typography variant="body2">
+                    <Divider sx={{ my: 0.5 }} />
+                    <Typography variant="caption">
                       {rec.explanation}
                     </Typography>
                   </CardContent>
@@ -1046,10 +1046,10 @@ export const PostgresDashboard: React.FC = () => {
           {/* Metrics Description with Tabs */}
           <StyledPaper sx={{ 
             flex: 1,
-            maxHeight: '600px', 
+            maxHeight: '500px', 
             overflow: 'auto'
           }}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="subtitle1" gutterBottom>
               Описание метрик
             </Typography>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', width: '100%' }}>
@@ -1073,40 +1073,40 @@ export const PostgresDashboard: React.FC = () => {
             {Object.entries(graphDescriptions.graphs).map(([key, graph], index) => (
               <TabPanel key={key} value={selectedTab} index={index}>
                 <Box sx={{ width: '100%' }}>
-                  <Typography variant="body1" paragraph>
+                  <Typography variant="body2" paragraph>
                     {graph.mainDescription}
                   </Typography>
 
-                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 3 }}>
+                  <Typography variant="body2" gutterBottom sx={{ mt: 2 }}>
                     Ключевые показатели:
                   </Typography>
                   <Box sx={{ 
                     display: 'grid', 
-                    gap: 2, 
+                    gap: 1, 
                     gridTemplateColumns: '1fr',
                     width: '100%'
                   }}>
                     {graph.metrics.map((metric, metricIndex) => (
                       <Card key={metricIndex} variant="outlined">
                         <CardContent>
-                          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                            <Typography variant="subtitle2" color="primary">
+                          <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
+                            <Typography variant="body2" color="primary">
                               {metric.name}
                             </Typography>
                           </Box>
-                          <Typography variant="body2" color="text.secondary" gutterBottom>
+                          <Typography variant="caption" color="text.secondary" gutterBottom>
                             {metric.description}
                           </Typography>
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                               <CheckCircleIcon color="success" sx={{ mr: 0.5, fontSize: 'small' }} />
-                              <Typography variant="body2">
+                              <Typography variant="caption">
                                 {metric.normalRanges.optimal}
                               </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                               <WarningIcon color="warning" sx={{ mr: 0.5, fontSize: 'small' }} />
-                              <Typography variant="body2">
+                              <Typography variant="caption">
                                 {metric.normalRanges.warning}
                               </Typography>
                             </Box>
@@ -1114,12 +1114,12 @@ export const PostgresDashboard: React.FC = () => {
                           <List dense>
                             {metric.troubleshooting.map((tip, tipIndex) => (
                               <ListItem key={tipIndex} sx={{ py: 0 }}>
-                                <ListItemIcon sx={{ minWidth: 36 }}>
+                                <ListItemIcon sx={{ minWidth: 28 }}>
                                   <BuildIcon color="action" sx={{ fontSize: 'small' }} />
                                 </ListItemIcon>
                                 <ListItemText 
                                   primary={tip}
-                                  primaryTypographyProps={{ variant: 'body2' }}
+                                  primaryTypographyProps={{ variant: 'caption' }}
                                 />
                               </ListItem>
                             ))}
@@ -1129,22 +1129,22 @@ export const PostgresDashboard: React.FC = () => {
                     ))}
                   </Box>
 
-                  <Typography variant="subtitle1" gutterBottom sx={{ mt: 3 }}>
+                  <Typography variant="body2" gutterBottom sx={{ mt: 2 }}>
                     Взаимосвязи:
                   </Typography>
                   <Box sx={{ 
                     display: 'grid', 
-                    gap: 2, 
+                    gap: 1, 
                     gridTemplateColumns: '1fr',
                     width: '100%'
                   }}>
                     {graph.correlations.map((correlation, corrIndex) => (
                       <Card key={corrIndex} variant="outlined">
                         <CardContent>
-                          <Typography variant="subtitle2" color="primary">
+                          <Typography variant="body2" color="primary">
                             {correlation.relationship}
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
+                          <Typography variant="caption" color="text.secondary">
                             {correlation.whatItMeans}
                           </Typography>
                         </CardContent>
